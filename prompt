@@ -28,6 +28,10 @@ git_prompt_go() {
   echo ' 'on $(git_current_branch) $(git_prompt_ahead)$(git_prompt_behind)`git_dirty`' '
 }
 
+battery_status(){
+~/.not-quite-dotfiles/battery-status
+}
+
 # For my own and others sanity
 # git:
 # %b => current branch
@@ -43,15 +47,11 @@ git_prompt_go() {
 # %(?..) => prompt conditional - %(condition.true.false)
 
 read -d '' SILLY_BIT << EOF
-(´ ▽｀).。ｏ♡
+🙋  nazim $(battery_status) 🚀
 EOF
 
-battery_status() {
-  ~/.not-quite-dotfiles/battery-status
-}
-
 # This prompt works in oh-my-zsh because of git_prompt_info magic. See below for regular zsh.
-PROMPT='$(battery_status)%F{red}$(echo "$SILLY_BIT") %F{green}%~%F{cyan}`git_prompt_go`%f%F{red} ❥ %f'
+PROMPT='%F{red}$(echo "$SILLY_BIT") %F{green}%~%F{cyan}`git_prompt_go`%f%F{red} → %f'
 
 # the btford prompt for regular zshs. Uncomment away.
 #autoload -Uz vcs_info
@@ -64,4 +64,4 @@ PROMPT='$(battery_status)%F{red}$(echo "$SILLY_BIT") %F{green}%~%F{cyan}`git_pro
 
 # And the prompt
 #PROMPT='
-#%F{red}$(echo "$SILLY_BIT") %F{green}%c%F{cyan}$vcs_info_msg_0_ %F{cyan}%`git_dirty` %f%F{red}❥ %f'
+#%F{red}$(echo "$SILLY_BIT") %F{green}%c%F{cyan}$vcs_info_msg_0_ %F{cyan}%`git_dirty` %f%F{red}→ %f'
