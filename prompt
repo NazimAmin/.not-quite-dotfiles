@@ -47,7 +47,7 @@ battery_status(){
 # %(?..) => prompt conditional - %(condition.true.false)
 
 read -d '' SILLY_BIT << EOF
-🙋  nazim $(battery_status) 🚀
+💩 
 EOF
 
 # This prompt works in oh-my-zsh because of git_prompt_info magic. See below for regular zsh.
